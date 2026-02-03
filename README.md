@@ -1,6 +1,24 @@
 Programming Fonts
 ================
 
+> **Note**: This is a fork of [braver/programmingfonts](https://github.com/braver/programmingfonts).
+>
+> **Recent changes by [@peinan](https://github.com/peinan):**
+> - Set Nord theme and JetBrains Mono as defaults
+> - Pre-seeded favorite fonts
+> - Use `uvx` instead `python3`
+> - Added SF Mono Square font
+>
+
+**Quick Start:**
+```bash
+# Initial setup (first time only)
+make
+
+# Start local server
+make serve
+```
+
 Test drive programming fonts [online in your browser](https://www.programmingfonts.org/). The interactive counter part of the [Tumblr Blog](https://programmingfonts.tumblr.com).
 
 ProgrammingFonts.org makes it easier to find monospaced fonts. All fonts in one place, with proper credits towards the creators. It's not a download portal, no tracking, monetization or business plan: it's strictly by nerds and designers for nerds and designers.
