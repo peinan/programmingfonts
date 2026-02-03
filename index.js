@@ -124,7 +124,12 @@ function renderSelectList () {
   document.getElementById('select-font').innerHTML = ''
 
   try {
-    favorites = JSON.parse(localStorage.getItem('favorites')) || []
+    const defaultFavorites = ['sfmono-square', 'google-sans-code', 'jetbrainsmono', 'maple', 'commit-mono']
+    favorites = JSON.parse(localStorage.getItem('favorites'))
+    if (favorites === null) {
+      favorites = defaultFavorites
+      localStorage.setItem('favorites', JSON.stringify(favorites))
+    }
     favoritesMap = favorites.reduce((acc, alias) => {
       acc[alias] = true
       return acc

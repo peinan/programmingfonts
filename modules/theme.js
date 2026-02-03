@@ -22,7 +22,7 @@ export class Theme {
   }
 
   set () {
-    let theme = 'oceanic-next'
+    let theme = 'nord'
 
     if (this.el.selectedIndex > -1) {
       theme = this.el.options[this.el.selectedIndex].textContent
