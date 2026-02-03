@@ -7,7 +7,7 @@ import { Language } from './modules/language.js'
 import { Spacing } from './modules/spacing.js'
 import { Theme } from './modules/theme.js'
 
-const defaultFont = 'md-io'
+const defaultFont = 'jetbrainsmono'
 const fontsize = new Fontsize()
 
 let fontData
