@@ -2201,6 +2201,30 @@
   src: url('../resources/scientifica/scientifica-italic.ttf');
 }
 @font-face {
+  font-family: 'sfmono-square';
+  font-weight: bold;
+  font-style: italic;
+  src: url('../resources/sfmono-square/sfmono-square-bold-italic.otf');
+}
+@font-face {
+  font-family: 'sfmono-square';
+  font-weight: bold;
+  font-style: normal;
+  src: url('../resources/sfmono-square/sfmono-square-bold.otf');
+}
+@font-face {
+  font-family: 'sfmono-square';
+  font-weight: normal;
+  font-style: italic;
+  src: url('../resources/sfmono-square/sfmono-square-italic.otf');
+}
+@font-face {
+  font-family: 'sfmono-square';
+  font-weight: normal;
+  font-style: normal;
+  src: url('../resources/sfmono-square/sfmono-square.otf');
+}
+@font-face {
   font-family: 'serious-shanns';
   font-weight: bold;
   font-style: italic;

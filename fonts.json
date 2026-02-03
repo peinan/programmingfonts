@@ -2192,6 +2192,24 @@
         "year": 2019,
         "zerostyle": "slashed"
     },
+    "sfmono-square": {
+        "author": "delphinus",
+        "description": "SF Mono Square is a arrow-filled variation of Apple's SF Mono font, featuring Nerd Fonts icons and Japanese glyphs.",
+        "license": "SIL OFL",
+        "ligatures": false,
+        "name": "SF Mono Square",
+        "rendering": "vector",
+        "style": "sans",
+        "variants": [
+            "regular",
+            "italic",
+            "bold",
+            "bold-italic"
+        ],
+        "website": "https://github.com/delphinus/homebrew-sfmono-square",
+        "year": 2019,
+        "zerostyle": "slashed"
+    },
     "serious-shanns": {
         "author": "Kyle Beechly",
         "description": "A legible monospace font for playful professionals. Comic Sans for hackers.",

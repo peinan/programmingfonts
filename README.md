@@ -17,12 +17,12 @@ Please feel free to make a little [donation via PayPal](https://paypal.me/koenla
 - All information about the fonts is stored in [fonts.json](https://github.com/braver/programmingfonts/blob/gh-pages/fonts.json).
   - Which adheres to [a schema](https://github.com/braver/programmingfonts/blob/gh-pages/fonts-schema.json).
 - Font files are stored in [fonts/resources](https://github.com/braver/programmingfonts/tree/gh-pages/fonts/resources).
-  - We store only 4 variants (if available), in `.woff2` format (if available): regular, italic, bold, bold+italic
+  - We store only 4 variants (if available), in `.woff2` format (if available, `.otf` or `.ttf` otherwise): regular, italic, bold, bold+italic
 - All font files (and directories) are normalized to lowercase, without `-mono` unless it's really part of the name.
 - The [fonts.less](https://github.com/braver/programmingfonts/blob/gh-pages/fonts/stylesheets/fonts.less) registers the variants for each font "alias" and is used to generate the stylesheets.
 - The license needs to allow serving in a website, or an agreement with the font creators needs to be made. If available we add a license file along with the font files.
 - Running `make` checks the json and builds the stylesheet.
-- Run `python3 listing.py` to print an updated list of all the fonts, be sure to update this README with your addition.
+- Run `uvx python listing.py` to print an updated list of all the fonts, be sure to update this README with your addition.
 
 ## Notable omissions
 
@@ -249,6 +249,7 @@ Therefore:
 - [Red Hat Mono](https://www.redhat.com/en/about/brand/standards/typography) _SIL OFL_ ([view](https://www.programmingfonts.org/#redhat))
 - [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono) _Apache_ ([view](https://www.programmingfonts.org/#roboto))
 - [saxMono](http://www.fontsquirrel.com/fonts/saxMono) _freeware_ ([view](https://www.programmingfonts.org/#sax))
+- [SF Mono Square](https://github.com/delphinus/homebrew-sfmono-square) _SIL OFL_ ([view](https://www.programmingfonts.org/#sfmono-square))
 - [Scientifica](https://github.com/nerdypepper/scientifica) _SIL OFL_ ([view](https://www.programmingfonts.org/#scientifica))
 - [Serious Shanns](https://kabeech.github.io/serious-shanns/) _MIT_ ([view](https://www.programmingfonts.org/#serious-shanns))
 - [Share Tech Mono](https://fonts.google.com/specimen/Share+Tech+Mono) _SIL OFL_ ([view](https://www.programmingfonts.org/#share-tech))

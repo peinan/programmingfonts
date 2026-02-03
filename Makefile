@@ -13,8 +13,8 @@ fonts/stylesheets/stylesheet.css: fonts/stylesheets/fonts.less
 	npx lessc $^ $@
 
 list:
-	python3 listing.py
+	uvx python listing.py
 
 serve:
 	open "http://localhost:8000"
-	python3 -m http.server
+	uvx python -m http.server
