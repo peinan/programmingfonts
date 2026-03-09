@@ -22,6 +22,9 @@ export class Samples {
       case 'python':
         code = Py;
         break;
+      case 'japanese':
+        code = PyJapanese;
+        break;
       case 'ruby':
         code = Ruby;
         break;
@@ -115,6 +118,42 @@ class SideBarDuplicateCommand(SideBarCommand):
         input_panel.sel().clear()
         input_panel.sel().add(
             sublime.Region(len(base) + 1, len(source) - len(ext))
+`
+
+export const PyJapanese =
+`from datetime import datetime
+
+NUMERALS = 1234567890
+SIMILAR = "0O 1lI | ｶカ ﾛロ 口□ シツ ソン 二ニ へヘ"
+SCRIPTS = "ひらがな: あいうえお カタカナ: アイウエオ 漢字: 日本語 半角ｶﾅ: ｱｲｳｴｵ"
+
+def あいさつ(名前):
+    print(f"こんにちは、{名前}さん")
+
+class 在庫管理:
+
+    def __init__(self, 商品一覧):
+        self.商品一覧 = 商品一覧
+
+    def 表示(self):
+        for 番号, 商品 in enumerate(self.商品一覧, start=1):
+            print(f"{番号}: {商品}")
+
+def main():
+    # かな、カナ、漢字、半角ｶﾅを混ぜて表示する
+    商品一覧 = ['りんご', 'バナナ', '図鑑', 'ｶﾒﾗ']
+    管理 = 在庫管理(商品一覧)
+    あいさつ('開発者')
+    管理.表示()
+
+    for 回数 in range(3):
+        print(f"{回数}回目: ﾃｽﾄ中 - {datetime.now():%H:%M}")
+
+    print(SCRIPTS)
+    print(SIMILAR)
+
+if __name__ == '__main__':
+    main()
 `
 
 const PHP =
