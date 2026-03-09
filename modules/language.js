@@ -6,6 +6,8 @@ export class Language {
   samples = new Samples()
 
   init () {
+    this.addJapaneseOption()
+
     if (Cookies.get('language')) {
       this.el.value = Cookies.get('language')
     }
@@ -19,9 +21,35 @@ export class Language {
     const lang = this.el.value
 
     window.CMeditor.doc.setValue(this.samples.get(lang))
-    window.CMeditor.setOption('mode', lang.toLowerCase())
+    window.CMeditor.setOption('mode', this.getMode(lang))
     window.CMeditor.refresh()
 
     Cookies.set('language', lang)
+  }
+
+  addJapaneseOption () {
+    if ([...this.el.options].some((option) => option.text === 'Japanese')) {
+      return
+    }
+
+    const option = document.createElement('option')
+    const rubyOption = [...this.el.options].find((existing) => existing.text === 'Ruby')
+
+    option.text = 'Japanese'
+
+    if (rubyOption) {
+      this.el.insertBefore(option, rubyOption)
+      return
+    }
+
+    this.el.append(option)
+  }
+
+  getMode (lang) {
+    if (lang.toLowerCase() === 'japanese') {
+      return 'python'
+    }
+
+    return lang.toLowerCase()
   }
 }
