@@ -3,6 +3,7 @@
 import { Cookies } from './modules/cookies.js'
 import { Fontsize } from './modules/fontsize.js'
 import { Filters } from './modules/filters.js'
+import { getJaFonts, loadJaFont, unloadJaFont } from './modules/ja-font-loader.js'
 import { Language } from './modules/language.js'
 import { Spacing } from './modules/spacing.js'
 import { Theme } from './modules/theme.js'
@@ -63,6 +64,9 @@ function setDetails (data) {
 function selectFont () {
   const codeMirror = document.querySelector('.CodeMirror')
   const font = getFont()
+  const jaFontName = document.getElementById('select-ja-font')?.selectedOptions[0]?.dataset.family || ''
+  const baseFont = font === 'input' ? 'Input Mono' : font
+  const fontFamily = jaFontName ? `${baseFont}, ${jaFontName}, monospace` : `${baseFont}, monospace`
 
   if (typeof fontData === 'undefined') {
     return
@@ -81,18 +85,10 @@ function selectFont () {
     fontsize.reset()
   }
 
-  if (font === 'input') {
-    // because Input Mono is loaded via external @font-face file
-    codeMirror.style.fontFamily = 'Input Mono, monospace'
-    codeMirror.querySelectorAll('pre, textarea').forEach((element) => {
-      element.style.fontFamily = 'Input Mono, monospace'
-    })
-  } else {
-    codeMirror.style.fontFamily = `${font}, monospace`
-    codeMirror.querySelectorAll('pre, textarea').forEach((element) => {
-      element.style.fontFamily = `${font}, monospace`
-    })
-  }
+  codeMirror.style.fontFamily = fontFamily
+  codeMirror.querySelectorAll('pre, textarea').forEach((element) => {
+    element.style.fontFamily = fontFamily
+  })
 
   document.querySelectorAll('#select-font [data-alias]').forEach((element) => {
     element.classList.remove('active')
@@ -111,6 +107,53 @@ function selectFont () {
   }
 
   Cookies.set('font', font)
+}
+
+async function initJaFontSelector () {
+  const jaSelect = document.getElementById('select-ja-font')
+
+  if (!jaSelect) {
+    return
+  }
+
+  try {
+    const jaFonts = await getJaFonts()
+
+    Object.entries(jaFonts).forEach(([alias, font]) => {
+      const option = document.createElement('option')
+      option.value = alias
+      option.textContent = font.name
+      option.dataset.family = font.name
+      jaSelect.appendChild(option)
+    })
+
+    const savedJaFont = Cookies.get('ja-font') || ''
+
+    if (savedJaFont && jaFonts[savedJaFont]) {
+      jaSelect.value = savedJaFont
+      await loadJaFont(savedJaFont)
+    } else {
+      jaSelect.value = ''
+      unloadJaFont()
+    }
+
+    jaSelect.addEventListener('change', async () => {
+      const fontAlias = jaSelect.value
+
+      if (fontAlias) {
+        await loadJaFont(fontAlias)
+      } else {
+        unloadJaFont()
+      }
+
+      Cookies.set('ja-font', fontAlias)
+      selectFont()
+    })
+
+    selectFont()
+  } catch (error) {
+    console.error('could not initialize Japanese fonts', error)
+  }
 }
 
 function renderSelectList () {
@@ -270,6 +313,7 @@ window.addEventListener('DOMContentLoaded', () => {
   new Theme().init()
   new Spacing().init()
   new Language().init()
+  initJaFontSelector()
 
   document.querySelector('.select-list').onkeydown = (event) => {
     if (event.ctrlKey || event.altKey || event.metaKey || event.shiftKey) {
