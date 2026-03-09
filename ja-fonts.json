@@ -1,0 +1,50 @@
+{
+  "bizudgothic": {
+    "name": "BIZ UDGothic",
+    "family": "BIZ+UDGothic",
+    "category": "gothic",
+    "weights": [400, 700]
+  },
+  "bizudmincho": {
+    "name": "BIZ UDMincho",
+    "family": "BIZ+UDMincho",
+    "category": "mincho",
+    "weights": [400, 700]
+  },
+  "notosansjp": {
+    "name": "Noto Sans JP",
+    "family": "Noto+Sans+JP",
+    "category": "gothic",
+    "weights": [400, 700]
+  },
+  "mplus1code": {
+    "name": "M PLUS 1 Code",
+    "family": "M+PLUS+1+Code",
+    "category": "gothic",
+    "weights": [400, 700]
+  },
+  "mplus2": {
+    "name": "M PLUS 2",
+    "family": "M+PLUS+2",
+    "category": "gothic",
+    "weights": [400, 700]
+  },
+  "kosugimaru": {
+    "name": "Kosugi Maru",
+    "family": "Kosugi+Maru",
+    "category": "gothic",
+    "weights": [400]
+  },
+  "sawarabigothic": {
+    "name": "Sawarabi Gothic",
+    "family": "Sawarabi+Gothic",
+    "category": "gothic",
+    "weights": [400]
+  },
+  "zenkakugothicnew": {
+    "name": "Zen Kaku Gothic New",
+    "family": "Zen+Kaku+Gothic+New",
+    "category": "gothic",
+    "weights": [400, 700]
+  }
+}
